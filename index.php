@@ -7,7 +7,7 @@ public $genre;
 public $date;
 public static $type = "FILM";
 
-public function __construct($_name,$_director,$_actor,$_genre,$_date){
+public function __construct($_name,$_director, Array $_actor, Array $_genre,$_date){
     $this->name = $_name;
     $this->director = $_director;
     $this->actor = $_actor;
@@ -22,15 +22,18 @@ public function getFullMovie(){
   $actor = $this->actor;
   $genre=$this->genre;
   $date=$this->date;
-  $fullMovie = $name . ' - ' . $director . ' - ' . $actor . ' - ' . $genre . ' - ' . $date . ' - '. self::$type;
+  $fullMovie = $name . ' - ' . $director . ' - ' . implode($actor) . ' - ' . implode($genre) . ' - ' . $date . ' - '. self::$type  ;
   return $fullMovie;
 }
 
+
 }
 
-$il_cavaliere_oscuro = new Movie('Il Cavaliere Oscuro','Christopher Nolan','Christian Bale','action','23 luglio 2008');
-echo $il_cavaliere_oscuro->getFullMovie();
-$ritorno_al_futuro = new Movie('Ritorno Al Futuro ', 'Robert Zemeckis','Bob Gale','fantasy','1985');
-echo $ritorno_al_futuro ->getFullMovie();
+
+
+$movie_id_1 = new Movie('Il Cavaliere Oscuro','Christopher Nolan','Christian Bale',['action','thriller','avventur'],'23 luglio 2008');
+echo $movie_id_1->getFullMovie();
+$movie_id_2 = new Movie('Ritorno Al Futuro ', 'Robert Zemeckis','Bob Gale',['fantasy','thriller','suspense'],'1985');
+echo $movie_id_2 ->getFullMovie();
 // var_dump($il_cavaliere_oscuro);
 ?>
