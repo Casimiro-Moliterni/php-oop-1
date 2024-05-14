@@ -5,6 +5,7 @@ public $director;
 public $actor;
 public $genre;
 public $date;
+public static $type = "FILM";
 
 public function __construct($_name,$_director,$_actor,$_genre,$_date){
     $this->name = $_name;
@@ -21,7 +22,7 @@ public function getFullMovie(){
   $actor = $this->actor;
   $genre=$this->genre;
   $date=$this->date;
-  $fullMovie = $name . ' - ' . $director . ' - ' . $actor . ' - ' . $genre . ' - ' . $date;
+  $fullMovie = $name . ' - ' . $director . ' - ' . $actor . ' - ' . $genre . ' - ' . $date . ' - '. self::$type;
   return $fullMovie;
 }
 
@@ -29,6 +30,7 @@ public function getFullMovie(){
 
 $il_cavaliere_oscuro = new Movie('Il Cavaliere Oscuro','Christopher Nolan','Christian Bale','action','23 luglio 2008');
 echo $il_cavaliere_oscuro->getFullMovie();
-
-var_dump($il_cavaliere_oscuro);
+$ritorno_al_futuro = new Movie('Ritorno Al Futuro ', 'Robert Zemeckis','Bob Gale','fantasy','1985');
+echo $ritorno_al_futuro ->getFullMovie();
+// var_dump($il_cavaliere_oscuro);
 ?>
